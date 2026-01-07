@@ -1,0 +1,53 @@
+1. 安装 WireGuard
+
+# 更新软件包列表
+sudo apt update
+# 安装 WireGuard 工具和内核模块
+sudo apt install wireguard -y
+
+2. 生成密钥对
+
+# 创建 WireGuard 配置目录
+sudo mkdir -p /etc/wireguard
+# 进入配置目录
+cd /etc/wireguard
+# 生成服务端公私钥（umask 确保私钥权限安全）
+umask 077
+sudo wg genkey | tee server_private.key | wg pubkey > server_public.key
+
+# 生成客户端公私钥（umask确保私钥权限安全）
+umask 077
+sudo wg genkey | tee client1_private.key | wg pubkey > client1_public.key
+
+#查看服务端私钥
+sudo cat /etc/wireguard/server_private.key
+#查看服务端公钥
+sudo cat /etc/wireguard/server_public.key
+
+#查看客户端私钥
+sudo cat /etc/wireguard/client1_private.key
+# 查看客户端公钥
+sudo cat /etc/wireguard/client1_public.key
+
+
+3. 配置服务端网卡
+sudo nano /etc/wireguard/wg0.conf
+粘贴配置文件
+
+4. 启用 IP 转发
+# 临时启用（重启失效）
+sudo sysctl -w net.ipv4.ip_forward=1
+# 永久启用（重启生效）
+sudo echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
+sudo sysctl -p
+
+5. 启动 WireGuard 服务
+# 启动 wg0 网卡并设置开机自启
+sudo systemctl enable --now wg-quick@wg0
+#查看服务状态，确认是否启动成功
+sudo systemctl status wg-quick@wg0
+
+6、服务端查看连接状态
+sudo wg show wg0
+
+

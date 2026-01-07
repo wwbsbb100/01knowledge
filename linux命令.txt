@@ -1,0 +1,28 @@
+更新系统包列表
+sudo apt update && sudo apt upgrade -y
+清屏
+clear
+安装MySQL（apt是软件包管理工具，-y是自动确认）
+sudo apt install mysql-server -y
+
+初始化并配置安全选项
+sudo mysql_secure_installation
+
+重启 MySQL 服务（systemctl是 Linux 系统中管理服务的核心命令工具）
+sudo systemctl restart mysql
+检查 MySQL 服务状态
+sudo systemctl status mysql
+
+sudo ufw enable  # 启用防火墙（会提示是否确认，输入y回车）
+sudo ufw status   # 查看Ubuntu防火墙状态
+sudo ufw allow 3306/tcp  # Ubuntu防火墙放行3306
+sudo ufw reload  # 重新加载规则
+
+cd ..  #退回当前目录的上一级
+nano database.py
+uvicorn main:app --host 0.0.0.0 --port 8000
+
+http://120.26.136.84:8000/docs
+120.26.136.84
+# 本地PowerShell执行（替换成你的路径和服务器公网IP）
+scp -r D:\WB\03fastapiJS root@120.26.136.84:/root/fastapi_project

@@ -1,0 +1,15 @@
+检查是否握手：
+sudo wg show wg0
+
+服务端私钥：
+0MMrzsCR4qo9UJI+scM0sWyc1XxG87ki05Ckg2H3/l4=
+
+服务端公钥：
+1NXgc68PFZug+s2AVcH2iLozRS+Rj2H/hjyuMQjFqCo=
+
+
+客户端秘钥：
+wHwKg2X3mDSxxANDSW76a2w714hf+4vgMEy8+z93BVg=
+
+客户端公钥：
+44LF12eoKF8Rx3AH+5OU7Is/vgbGFoMzZj6l3g1Y3Hk=

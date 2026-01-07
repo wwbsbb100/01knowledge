@@ -1,0 +1,25 @@
+1、初始化本地 Git 仓库，在当前文件夹创建一个 “Git 管理目录”
+git init
+
+2、将本地所有修改 / 新增的文件 “暂存” 到 Git 的暂存区
+git add .
+
+3、将暂存区的文件正式 “提交” 到本地 Git 仓库，生成一个版本记录
+git commit -m "更新代码" 
+
+4、将本地仓库和远程仓库建立关联，注意用ssh的话，步骤不同
+
+git remote add origin git@github.com:wwbsbb100/DataAnalyse.git
+
+git remote add origin git@github.com:wwbsbb100/books_system.git
+
+git remote add origin git@github.com:wwbsbb100/employee_system.git
+
+git remote add origin git@github.com:wwbsbb100/stardew_farm.git
+
+5、将本地仓库的main分支代码推送到origin对应的远程仓库
+git push -u origin main
+
+git branch -M main  # 将本地分支从master重命名为main
+
+

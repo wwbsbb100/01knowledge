@@ -1,0 +1,27 @@
+客户端配置
+
+1、下载安装https://link.wtturl.cn/?target=https%3A%2F%2Fwww.wireguard.com%2Finstall%2F&scene=im&aid=497858&lang=zh
+
+2、打开客户端，点击 Add Tunnel → Add empty tunnel
+
+3、粘贴以下配置，替换括号内的内容
+
+[Interface]
+# 客户端私钥（client1_private.key 的内容）
+PrivateKey = 客户端私钥内容
+# 客户端内网 IP（和服务端 Peer 配置一致，如 10.0.0.2/24）
+Address = 10.0.0.2/24
+# 可选：DNS 服务器（如 8.8.8.8 或 223.5.5.5）
+DNS = 8.8.8.8
+
+[Peer]
+# 服务端公钥（server_public.key 的内容）
+PublicKey = 服务端公钥内容
+# 服务端公网 IP 和端口（如 123.123.123.123:51820）
+Endpoint = 服务器公网IP:51820
+# 路由规则：0.0.0.0/0 表示所有流量走 VPN；也可填特定网段
+AllowedIPs = 0.0.0.0/0
+# 保持连接（防止 NAT 超时）
+PersistentKeepalive = 25
+
+4、点击 Save 保存配置，然后点击 Activate 连接 VPN。

@@ -1,0 +1,18 @@
+netsh winsock reset
+
+深度重置网络（适用于系统级网络故障）
+通过命令重置所有网络设置：
+netsh int ip reset
+netsh winsock reset
+该操作会清空 IP 配置、路由表等，需重新设置网络参数。
+
+
+刷新 DNS 缓存（解决域名解析问题）：
+ipconfig /flushdns
+
+释放并重新获取 IP 地址（适用于 IP 冲突）：
+ipconfig /release
+ipconfig /renew
+
+重置网络适配器配置（修复网卡异常）：
+netsh winsock reset

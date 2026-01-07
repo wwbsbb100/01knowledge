@@ -1,0 +1,51 @@
+apktool d D:\yingyongjiasu\xinfiles\1.apk  --only-main-classes -o D:\yingyongjiasu\xinfiles\1
+
+application 标签中添加android:extractNativeLibs="true"
+
+
+【1】# static fields
+.field MainActivity:Lcom/example/igamesdk/MainActivity;
+
+【2】.method public constructor <init>()V
+new-instance v0, Lcom/example/igamesdk/MainActivity;
+
+invoke-direct {v0}, Lcom/example/igamesdk/MainActivity;-><init>()V
+
+iput-object v0, p0, Lxx/xx/xx/xx;->MainActivity:Lcom/example/igamesdk/MainActivity;
+
+【4】
+.method public setApi()V
+    .locals 3
+
+    # 获取 ApplicationContext
+    invoke-virtual {p0}, Lxx/xx/xx/xx;->getApplicationContext()Landroid/content/Context;
+    move-result-object v0
+
+    # 调用 MainActivity 的 start 方法
+    iget-object v1, p0, Lxx/xx/xx/xx;->MainActivity:Lcom/example/igamesdk/MainActivity;
+    const-string v2, "xxxx"
+    invoke-virtual {v1, v2}, Lcom/example/igamesdk/MainActivity;->start(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v1
+
+    # 创建 Toast 并显示
+    const/4 v2, 0x1
+    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    move-result-object v0
+
+    # 调用 Toast 的 show 方法
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+
+    return-void
+.end method
+
+【5】.method public onCreate(Landroid/os/Bundle;)V
+invoke-virtual {p0}, Lxx/xx/xx/xx;->setApi()V
+
+apktool b D:\yingyongjiasu\xinfiles\1 -o D:\yingyongjiasu\xinfiles\re_1.apk
+
+cd C:\Users\Administrator\AppData\Local\Android\Sdk\build-tools\34.0.0
+zipalign -p -f -v 4 D:\yingyongjiasu\xinfiles\re_1.apk D:\yingyongjiasu\xinfiles\1ok.apk
+zipalign -c -v 4 D:\yingyongjiasu\xinfiles\1ok.apk
+
+java -jar C:\Users\Administrator\AppData\Local\Android\Sdk\build-tools\34.0.0\lib\apksigner.jar sign  --v1-signing-enabled true --v2-signing-enabled true --v3-signing-enabled true  --ks E:\112\1018.jks --ks-pass pass:"123456"  --out D:\yingyongjiasu\xinfiles\1sign.apk D:\yingyongjiasu\xinfiles\1ok.apk
+
