@@ -1,0 +1,15 @@
+sudo ufw enable  # 启用防火墙（会提示是否确认，输入y回车）
+sudo ufw status   # 查看Ubuntu防火墙状态
+
+# 开放UDP 端口（WireGuard 默认使用 UDP 协议 进行通信）
+sudo ufw allow 51820/udp
+sudo ufw reload
+
+# 开放TCP 端口
+sudo ufw allow 51820/tcp  
+
+sudo ufw reload  # 重新加载规则
+
+# 删除规则
+sudo ufw delete allow 51820/tcp
+sudo ufw delete allow 51820/tcp (v6)

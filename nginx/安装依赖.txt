@@ -1,0 +1,19 @@
+# CentOS 7/8 执行
+yum install -y gcc pcre pcre-devel zlib zlib-devel openssl openssl-devel
+
+#Ubuntu 系统安装 Nginx
+步骤 1：更新系统源（避免安装依赖出错）
+sudo apt update && sudo apt upgrade -y
+步骤 2：安装 Nginx
+sudo apt install -y nginx
+步骤 3：验证 Nginx 安装 & 启动
+# 查看 Nginx 版本（验证安装）
+nginx -v
+# 启动 Nginx
+sudo systemctl start nginx
+# 设置开机自启（服务器重启后自动运行）
+sudo systemctl enable nginx
+# 查看 Nginx 状态（显示 active (running) 就是正常）
+sudo systemctl status nginx
+步骤 4：开放 80 端口（Ubuntu 防火墙）
+sudo ufw allow 80/tcp

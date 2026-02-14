@@ -1,12 +1,12 @@
 1. 安装 WireGuard
-
 # 更新软件包列表
 sudo apt update
 # 安装 WireGuard 工具和内核模块
 sudo apt install wireguard -y
 
 2. 生成密钥对
-
+#切换root权限
+sudo -i
 # 创建 WireGuard 配置目录
 sudo mkdir -p /etc/wireguard
 # 进入配置目录
@@ -30,7 +30,7 @@ sudo cat /etc/wireguard/client1_private.key
 sudo cat /etc/wireguard/client1_public.key
 
 
-3. 配置服务端网卡
+3. 配置服务端网卡（需查看网卡是否是wg0）
 sudo nano /etc/wireguard/wg0.conf
 粘贴配置文件
 

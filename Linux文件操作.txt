@@ -1,0 +1,4 @@
+ls -a	查看全部文件
+cd /var/www/html	网站默认目录
+
+sudo cp -r ./ /var/www/html/

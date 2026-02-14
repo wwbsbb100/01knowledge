@@ -1,0 +1,28 @@
+mkdir 	文件夹名
+pwd 	当前工作目录
+vim /var/www/html/novel_texts/hongchenzhishang.txt
+
+sudo mv /var/www/html/novel_texts/红尘之殇.txt /var/www/html/novel_texts/hongchenzhishang.txt
+
+
+http://8.219.173.27/novel_texts/hongchenzhishang.txt
+SCP传输
+
+
+scp -P 端口号 本地文件绝对/相对路径 服务器用户名@服务器IP:服务器目标路径
+scp  "D:/WB/01手机网站/*" root@8.219.173.27:/var/www/html
+http://starwwb.xyz/
+
+scp -r "D:/WB/01手机网站" root@8.219.173.27:/home/admin/wb
+scp  "D:/WB/01手机网站/index.html" root@8.219.173.27:/var/www/html
+
+scp  "D:/WB/01小说源/红尘之殇.txt" root@8.219.173.27:/var/www/html/novel_texts
+
+novel_texts
+Wwb@18395919245
+
+sudo cp /home/admin/wb/01手机网站/*.html /var/www/html/
+
+sudo cp ~/wb/01手机网站/index.html /var/www/html/index.nginx-debian.html
+
+cat /var/www/html/index.html	查看 index.html 完整内容

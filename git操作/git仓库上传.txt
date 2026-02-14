@@ -9,6 +9,10 @@ git commit -m "更新代码"
 
 4、将本地仓库和远程仓库建立关联，注意用ssh的话，步骤不同
 
+git remote add origin git@github.com:wwbsbb100/Person_Blog.git
+
+git remote add origin git@github.com:wwbsbb100/01knowledge.git
+
 git remote add origin git@github.com:wwbsbb100/DataAnalyse.git
 
 git remote add origin git@github.com:wwbsbb100/books_system.git
@@ -16,6 +20,8 @@ git remote add origin git@github.com:wwbsbb100/books_system.git
 git remote add origin git@github.com:wwbsbb100/employee_system.git
 
 git remote add origin git@github.com:wwbsbb100/stardew_farm.git
+
+git remote add origin git@github.com:wwbsbb100/Wwb_Web.git
 
 5、将本地仓库的main分支代码推送到origin对应的远程仓库
 git push -u origin main

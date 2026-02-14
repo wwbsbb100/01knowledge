@@ -1,0 +1,2 @@
+1、下载Git
+sudo apt update && sudo apt install git -y
