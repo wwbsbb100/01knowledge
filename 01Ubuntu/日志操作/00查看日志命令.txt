@@ -1,0 +1,17 @@
+#直接查看完整认证日志
+sudo cat /var/log/auth.log
+
+# 实时查看最新的认证日志
+sudo tail -f /var/log/auth.log
+
+# 查看最近20条认证日志
+sudo tail -n 20 /var/log/auth.log
+
+#查看所有 sudo 操作
+sudo grep "COMMAND" /var/log/auth.log
+
+#查看所有成功的 SSH 登录
+sudo grep "Accepted" /var/log/auth.log
+
+#查看所有失败的登录尝试
+sudo grep "Failed" /var/log/auth.log

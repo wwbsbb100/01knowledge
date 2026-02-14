@@ -1,0 +1,24 @@
+1. 清空或删除关键日志文件
+注意：直接删除或清空日志会非常显眼，容易被发现。更隐蔽的做法是选择性编辑或覆盖内容
+
+# 清空认证日志（最关键）
+sudo truncate -s 0 /var/log/auth.log
+sudo truncate -s 0 /var/log/syslog
+
+# 清空历史登录记录
+sudo truncate -s 0 /var/log/wtmp
+sudo truncate -s 0 /var/log/btmp
+sudo truncate -s 0 /var/log/utmp
+
+# 清空当前用户的命令历史
+history -c && rm -f ~/.bash_history
+
+2. 清理 systemd 日志
+# 清空所有 journal 日志
+sudo journalctl --rotate
+sudo journalctl --vacuum-time=1s
+
+3. 覆盖文件内容（比直接删除更隐蔽）
+# 用空内容覆盖日志文件
+sudo sh -c 'echo "" > /var/log/auth.log'
+sudo sh -c 'echo "" > /var/log/syslog'

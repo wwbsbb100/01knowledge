@@ -1,0 +1,21 @@
+Ubuntu 主要的日志文件都在 /var/log/ 目录下
+#直接查看完整认证日志
+sudo cat /var/log/auth.log
+
+/var/log/syslog
+系统核心日志，包含大部分服务和内核信息
+
+/var/log/auth.log
+认证与授权日志（SSH 登录、sudo 操作等）
+
+/var/log/kern.log
+内核日志
+
+/var/log/dmesg
+启动时的内核消息
+
+/var/log/apache2/
+Apache/Nginx 等服务的访问 / 错误日志
+
+/var/log/auth.log.1, /var/log/syslog.1
+日志轮转后的历史文件

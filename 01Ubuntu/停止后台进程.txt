@@ -1,0 +1,27 @@
+sudo wg show wg0
+
+# 终止所有 access_monitor.sh 进程
+pkill -f access_monitor.sh
+
+# 再次检查，确保没有残留
+ps aux | grep access_monitor.sh
+
+#强制终止
+kill -9 5275 5276 5277 8497
+
+#后台启动脚本
+sudo nohup ./access_monitor.sh > /dev/null 2>&1 &
+echo $! > access_monitor.pid
+
+#修复换行符（Windows 编写的格式问题）
+sed -i 's/\r$//' access_monitor.sh
+
+#赋予执行权限
+sudo chmod +x access_monitor.sh
+
+#运行脚本（仅执行一次）
+./access_monitor.sh
+
+sudo cat /var/log/access_records.log
+
+sudo rm /var/log/access_records.log

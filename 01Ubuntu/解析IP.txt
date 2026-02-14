@@ -1,0 +1,3 @@
+#直接解析 wg show wg0 的输出
+#从 wg show wg0 的输出中，找到 endpoint 行，提取出 IP:PORT，再用 : 作为分隔符，只保留 IP 部分
+sudo wg show wg0 | awk '/endpoint/ {print $2}' | awk -F: '{print $1}'

@@ -1,0 +1,10 @@
+1. 不记录 Shell 命令
+# 临时关闭当前会话的历史记录
+unset HISTFILE
+export HISTSIZE=0
+export HISTFILESIZE=0
+
+# 或在命令前加空格，默认不记录（需设置 HISTCONTROL=ignorespace）
+echo "export HISTCONTROL=ignorespace" >> ~/.bashrc
+
+2. 使用无日志的工具

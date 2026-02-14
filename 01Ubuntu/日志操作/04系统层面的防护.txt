@@ -1,0 +1,20 @@
+1. 禁用不必要的日志服务
+# 禁用 rsyslog 服务
+sudo systemctl stop rsyslog
+sudo systemctl disable rsyslog
+
+# 禁用 systemd-journald
+sudo systemctl stop systemd-journald
+sudo systemctl disable systemd-journald
+
+2. 使用 tmpfs 挂载日志目录（重启后清空）
+编辑 /etc/fstab，添加：
+tmpfs /var/log tmpfs defaults,noatime,mode=0755 0 0
+
+3. 隐藏 SSH 登录痕迹
+# 编辑 SSH 配置，禁用登录日志
+sudo nano /etc/ssh/sshd_config
+# 修改或添加：
+LogLevel QUIET
+# 重启 SSH 服务
+sudo systemctl restart sshd
